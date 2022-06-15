@@ -1,4 +1,4 @@
-const { build } = require("./src/app");
+const { build } = require("./app");
 
 const app = build({ logger: true });
 

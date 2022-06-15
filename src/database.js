@@ -16,6 +16,12 @@ class Database {
     ];
   }
 
+  /**
+   * Get a list of todos or a single todo is id is specified
+   *
+   * @param {Number} id
+   * @returns {Object}
+   */
   get(id) {
     if (!id) return this.data;
 
@@ -25,10 +31,23 @@ class Database {
     return {};
   }
 
+  /**
+   * Adding an todo into the database
+   *
+   * @param {obj} obj
+   * @returns {null}
+   */
   add(obj) {
     this.data.push(obj);
   }
 
+  /**
+   * Update a single todo by id
+   *
+   * @param {Number} id
+   * @param {String} message
+   * @returns {Object}
+   */
   modify(id, message) {
     const index = this.data.findIndex((el) => el.id === id);
     if (index < 0) return;
@@ -36,6 +55,12 @@ class Database {
     return this.data[index];
   }
 
+  /**
+   * Delete a todo by id
+   *
+   * @param {Number} id
+   * @returns {null}
+   */
   delete(id) {
     const index = this.data.findIndex((el) => el.id === id);
     if (index < 0) return;

@@ -4,8 +4,8 @@
   "description": "A fastify rest api",
   "main": "index.js",
   "scripts": {
-    "start": "node .",
-    "dev": "nodemon ."
+    "start": "node src/.",
+    "dev": "nodemon src/."
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/DemonHa/fastify_rest#readme",
   "dependencies": {
+    "@fastify/swagger": "^7.3.0",
     "fastify": "^4.0.2",
     "nodemon": "^2.0.16"
   }
