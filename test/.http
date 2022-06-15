@@ -1,0 +1,24 @@
+### GET REQUEST TO /todo
+GET http://127.0.0.1:3000/todo HTTP/1.1
+
+### GET SPECIFIC REQUEST TO /todo
+GET http://127.0.0.1:3000/todo/1 HTTP/1.1
+
+### POST REQUEST TO /todo
+POST http://127.0.0.1:3000/todo HTTP/1.1
+Content-Type: application/json
+
+{
+    "message": "Hi mom"
+}
+
+### UPDATE REQUEST TO /todo
+PUT http://127.0.0.1:3000/todo/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "message": "Go to park"
+}
+
+### DELETE SPECIFIC REQUEST TO /todo
+DELETE http://127.0.0.1:3000/todo/4 HTTP/1.1
