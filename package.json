@@ -1,0 +1,24 @@
+{
+  "name": "fastify_rest",
+  "version": "1.0.0",
+  "description": "A fastify rest api",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DemonHa/fastify_rest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DemonHa/fastify_rest/issues"
+  },
+  "homepage": "https://github.com/DemonHa/fastify_rest#readme",
+  "dependencies": {
+    "fastify": "^4.0.2",
+    "nodemon": "^2.0.16"
+  }
+}
