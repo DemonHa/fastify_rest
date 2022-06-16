@@ -18,8 +18,13 @@
   },
   "homepage": "https://github.com/DemonHa/fastify_rest#readme",
   "dependencies": {
+    "@fastify/postgres": "^5.0.0",
     "@fastify/swagger": "^7.3.0",
     "fastify": "^4.0.2",
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "jest": "^28.1.1"
   }
 }

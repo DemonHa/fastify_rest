@@ -12,6 +12,9 @@ const app = build(
         version: "0.1.0",
       },
     },
+  },
+  {
+    connectionString: "postgres://postgres:postgres@127.0.0.1:5432/postgres",
   }
 );
 

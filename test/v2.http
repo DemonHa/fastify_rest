@@ -1,0 +1,27 @@
+### GET REQUEST TO /v2/items
+GET http://127.0.0.1:3000/v2/items HTTP/1.1
+
+### GET SPECIFIC REQUEST TO /v2/items
+GET http://127.0.0.1:3000/v2/items/5 HTTP/1.1
+
+### POST REQUEST TO /v2/items
+POST http://127.0.0.1:3000/v2/items HTTP/1.1
+Content-Type: application/json
+
+{
+    "description": "Hi mom",
+    "gross_amount": 200,
+    "net_amount": 100,
+    "excluded_vat_amount": 10
+}
+
+### UPDATE REQUEST TO /v2/items
+PUT http://127.0.0.1:3000/v2/items/5 HTTP/1.1
+Content-Type: application/json
+
+{
+    "description": "Go to park"
+}
+
+### DELETE SPECIFIC REQUEST TO /v2/items
+DELETE http://127.0.0.1:3000/v2/items/7 HTTP/1.1
