@@ -38,6 +38,7 @@ module.exports = function setupTestEnv() {
   });
 
   afterAll(async () => {
+    await app.pg.query("DROP TABLE IF EXISTS items");
     app.close();
   });
 
