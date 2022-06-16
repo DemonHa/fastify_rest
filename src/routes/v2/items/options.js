@@ -6,6 +6,7 @@ const get_options = {
         items: {
           type: "object",
           properties: {
+            name: { type: "string" },
             description: { type: "string" },
             gross_amount: { type: "number" },
             net_amount: { type: "number" },
@@ -23,6 +24,7 @@ const get_item_options = {
       200: {
         type: "object",
         properties: {
+          name: { type: "string" },
           description: { type: "string" },
           gross_amount: { type: "number" },
           net_amount: { type: "number" },
@@ -36,15 +38,18 @@ const get_item_options = {
 const post_options = {
   schema: {
     body: {
-      required: ["message"],
+      required: ["name", "description", "gross_amount"],
       properties: {
-        message: { type: "string" },
+        name: { type: "string" },
+        description: { type: "string" },
+        gross_amount: { type: "number" },
       },
     },
     response: {
       201: {
         type: "object",
         properties: {
+          name: { type: "string" },
           description: { type: "string" },
           gross_amount: { type: "number" },
           net_amount: { type: "number" },
@@ -58,8 +63,9 @@ const post_options = {
 const put_options = {
   schema: {
     body: {
-      required: ["description"],
+      required: ["name", "description"],
       properties: {
+        name: { type: "string" },
         description: { type: "string" },
       },
     },
@@ -73,6 +79,7 @@ const put_options = {
       201: {
         type: "object",
         properties: {
+          name: { type: "string" },
           description: { type: "string" },
           gross_amount: { type: "number" },
           net_amount: { type: "number" },

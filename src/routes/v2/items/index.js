@@ -6,13 +6,15 @@ const {
   delete_options,
 } = require("./options");
 
+const { vatcalculator } = require("./../../../utils/vat_calculator");
+
 const items = (fastify, _, done) => {
   fastify.get("/", get_options, async (req, res) => {
     try {
       const { rows } = await fastify.pg.query("SELECT * FROM items");
       res.send(rows);
     } catch (err) {
-      res.send(err);
+      res.code(400).send(err);
     }
   });
 
@@ -31,13 +33,14 @@ const items = (fastify, _, done) => {
   });
 
   fastify.post("/", post_options, async (req, res) => {
-    const { description, gross_amount, net_amount, excluded_vat_amount } =
-      req.body;
-    console.log("Here");
+    const { name, description, gross_amount } = req.body;
     try {
+      const net_amount = vatcalculator.calculateNetAmount(gross_amount);
+      const vat_amount = vatcalculator.calculateVat(net_amount);
+
       const { rows } = await fastify.pg.query(
-        "INSERT INTO items (description, gross_amount, net_amount, excluded_vat_amount) VALUES ($1, $2, $3, $4) RETURNING *",
-        [description, gross_amount, net_amount, excluded_vat_amount]
+        "INSERT INTO items (name, description, gross_amount, net_amount, excluded_vat_amount) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+        [name, description, gross_amount, net_amount, vat_amount]
       );
       res.code(201).send(rows[0]);
     } catch (err) {
@@ -47,12 +50,12 @@ const items = (fastify, _, done) => {
 
   fastify.put("/:id", put_options, async (req, res) => {
     const { id } = req.params;
-    const { description } = req.body;
+    const { name, description } = req.body;
 
     try {
       const { rows } = await fastify.pg.query(
-        "UPDATE items SET description=$1 WHERE id=$2 RETURNING *",
-        [description, id]
+        "UPDATE items SET name=$1, description=$2 WHERE id=$3 RETURNING *",
+        [name, description, id]
       );
       if (rows.length) res.send(rows[0]);
       else res.code(400).send("Not a valid id");

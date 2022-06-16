@@ -4,6 +4,8 @@
   "description": "A fastify rest api",
   "main": "index.js",
   "scripts": {
+    "test": "jest --covarge --runInBand",
+    "test:watch": "jest --watch",
     "start": "node src/.",
     "dev": "nodemon src/."
   },
