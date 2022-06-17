@@ -19,10 +19,10 @@ const app = build(
   }
 );
 
-app.listen(Number(env.WEB_APP_HOST_PORT), "0.0.0.0", function (err, address) {
+app.listen(Number(env.WEB_APP_HOST_PORT), "0.0.0.0", (err, address) => {
   if (err) {
     console.log(err);
     process.exit(1);
   }
-  // Server is now listening on ${address}
+  console.log(`Server is now listening on ${address}`);
 });
