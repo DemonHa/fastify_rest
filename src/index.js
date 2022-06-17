@@ -19,7 +19,7 @@ const app = build(
   }
 );
 
-app.listen({ port: env.WEB_APP_HOST_PORT }, "0.0.0.0", function (err, address) {
+app.listen(Number(env.WEB_APP_HOST_PORT), "0.0.0.0", function (err, address) {
   if (err) {
     console.log(err);
     process.exit(1);
