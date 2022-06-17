@@ -1,5 +1,5 @@
 ### GET REQUEST TO /v2/items
-GET http://127.0.0.1:3000/v2/items HTTP/1.1
+GET http://localhost:3000/v2/items HTTP/1.1
 
 ### GET SPECIFIC REQUEST TO /v2/items
 GET http://127.0.0.1:3000/v2/items/5 HTTP/1.1

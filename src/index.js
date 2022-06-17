@@ -1,4 +1,5 @@
 const { build } = require("./app");
+const env = require("./config/env");
 
 const app = build(
   { logger: true },
@@ -14,13 +15,13 @@ const app = build(
     },
   },
   {
-    connectionString: "postgres://postgres:postgres@127.0.0.1:5432/postgres",
+    connectionString: env.POSTGRES_DB_CONNECTION_STRING,
   }
 );
 
-app.listen({ port: 3000 }, function (err, address) {
+app.listen({ port: env.WEB_APP_HOST_PORT }, "0.0.0.0", function (err, address) {
   if (err) {
-    fastify.log.error(err);
+    console.log(err);
     process.exit(1);
   }
   // Server is now listening on ${address}
