@@ -32,6 +32,7 @@ const get_todo_options = {
 const post_options = {
   schema: {
     body: {
+      type: "object",
       required: ["message"],
       properties: {
         message: { type: "string" },
@@ -52,6 +53,7 @@ const post_options = {
 const put_options = {
   schema: {
     body: {
+      type: "object",
       required: ["message"],
       properties: {
         message: { type: "string" },
