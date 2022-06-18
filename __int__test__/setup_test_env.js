@@ -1,5 +1,5 @@
 const { build } = require("./../src/app");
-const env = require("../src/config/env");
+const env = require("./../src/config/env");
 
 const setup_tables = `CREATE TABLE IF NOT EXISTS "public"."items" ( \
     "id" SERIAL PRIMARY KEY, \
